@@ -49,7 +49,6 @@ class WctApp extends LitElement {
   }
   
   userClicked(e){
-    console.log(e.detail.index);
     this.selectedUser = e.detail.index;
   }
 
