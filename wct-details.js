@@ -15,17 +15,13 @@ class WctDetails extends LitElement {
 
   constructor() {
     super();
-    this.name = 'Levhita';
-    this.group = 'Teacher';
-    this.bio = 'Web Developr and Free Software Advocate';
-    this.profession = 'Developer';
-    this.email = 'levhita@gmail.com';
-    this.phone = '33-11-29-38-69';
-    this.picture = {
-      large:'https://pbs.twimg.com/profile_images/1214948725359071234/Bm4T4-cg_400x400.jpg',
-      medium: 'https://pbs.twimg.com/profile_images/1214948725359071234/Bm4T4-cg_200x200.jpg',
-      thumbnail: 'https://pbs.twimg.com/profile_images/1214948725359071234/Bm4T4-cg_normal.jpg'
-    };
+    this.name = '';
+    this.group = '';
+    this.bio = '';
+    this.profession = '';
+    this.email = '';
+    this.phone = '';
+    this.picture = {large:'',medium:''};
   }
 
   render(){
@@ -33,9 +29,9 @@ class WctDetails extends LitElement {
       <section>
         <div>
           <h1>${this.name}</h1>
-          <p>${this.status}</p>
-          <img src="${this.picture.medium}" />
-          <img src="${this.picture.large}" />
+          <p>${this.group}</p>
+          <img src=${this.picture.medium} />
+          <img src=${this.picture.large} />
         </div>
         <dl>
           <dt>Short Bio</dt>

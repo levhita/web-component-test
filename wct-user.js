@@ -11,8 +11,8 @@ class WctUser extends LitElement {
 
   constructor() {
     super();
-    this.name = 'Levhita';
-    this.thumbnail ='https://pbs.twimg.com/profile_images/1214948725359071234/Bm4T4-cg_normal.jpg';
+    this.name = '';
+    this.thumbnail ='';
   }
 
   render(){

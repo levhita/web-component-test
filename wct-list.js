@@ -11,19 +11,7 @@ class WctList extends LitElement {
 
   constructor() {
     super();
-    this.users = [{
-      name : 'Levhita',
-      group : 'Teacher',
-      bio : 'Web Developr and Free Software Advocate',
-      profession : 'Developer',
-      email : 'levhita@gmail.com',
-      phone : '33-11-29-38-69',
-      picture : {
-        large:'https://pbs.twimg.com/profile_images/1214948725359071234/Bm4T4-cg_400x400.jpg',
-        medium: 'https://pbs.twimg.com/profile_images/1214948725359071234/Bm4T4-cg_200x200.jpg',
-        thumbnail: 'https://pbs.twimg.com/profile_images/1214948725359071234/Bm4T4-cg_normal.jpg'
-      }
-    }];
+    this.users = [];
   }
   render(){
 
@@ -43,7 +31,7 @@ class WctList extends LitElement {
           </select>
         </div>
         <div>
-          ${this.users.map((e, i) => html`<wct-user thumbnail="${e.picture.thumbnail}" name="${e.name}"></wct-user>`)}
+          ${this.users.map((e, i) => html`<wct-user thumbnail=${e.picture.thumbnail} name=${e.name}></wct-user>`)}
         </div>
       </section>
     `;
