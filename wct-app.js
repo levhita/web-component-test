@@ -47,13 +47,19 @@ class WctApp extends LitElement {
     this.selected = {};
     this.users = [];
   }
+  
+  userClicked(e){
+    console.log(e.detail.index);
+    this.selectedUser = e.detail.index;
+  }
+
   render(){
     if ( this.loading ) return html `Loading...` ;
 
     const e = this.users[this.selectedUser];
 
     return html`
-      <wct-list .users=${this.users}></wct-list>
+      <wct-list @user-clicked=${this.userClicked} .users=${this.users}></wct-list>
       <hr />
       <wct-details
         name=${e.name}

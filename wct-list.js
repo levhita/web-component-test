@@ -13,8 +13,8 @@ class WctList extends LitElement {
     super();
     this.users = [];
   }
-  render(){
 
+  render(){
     return html`
       <section>
         <h1>Users</h1>
@@ -31,7 +31,7 @@ class WctList extends LitElement {
           </select>
         </div>
         <div>
-          ${this.users.map((e, i) => html`<wct-user thumbnail=${e.picture.thumbnail} name=${e.name}></wct-user>`)}
+          ${this.users.map((e, i) => html`<wct-user index=${i} thumbnail=${e.picture.thumbnail} name=${e.name}></wct-user>`)}
         </div>
       </section>
     `;
