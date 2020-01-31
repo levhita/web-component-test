@@ -2,7 +2,14 @@ import { LitElement, html } from 'lit-element';
 import './wct-list.js';
 import './wct-details.js';
 
+const groups = ['Student','Teacher','Administrative'];
+const professions = [
+  'Accountant','Actor','Actress','Air Traffic Controller','Architect','Artist','Attorney',
+  'Banker','Bartender','Barber','Bookkeeper','Builder','Businessman'
+];
+
 class WctApp extends LitElement {
+
 
   static get properties() {
     return {
@@ -18,19 +25,13 @@ class WctApp extends LitElement {
   }
   
   getUsers() {
-    const groups = ['Student','Teacher','Administrative'];
-    const professions = [
-      'Accountant','Actor','Actress','Air Traffic Controller','Architect','Artist','Attorney',
-      'Banker','Bartender','Barber','Bookkeeper','Builder','Businessman'
-    ];
-
     this.loading = true;
-    fetch('https://randomuser.me/api/?seed=levhita&results=18&inc=name,phone,email,picture')
+    fetch('https://randomuser.me/api/?seed=levhita&results=50&inc=name,phone,email,picture')
     .then((response) => {
         return response.json();
     })
     .then((data) => {
-        this.users = data.results.map( (e) => {
+        this.users = data.results.map( (e, index) => {
             return {
                 name: `${e.name.first} ${e.name.last}`,
                 group: groups[Math.floor(Math.random()*groups.length)],
@@ -38,7 +39,8 @@ class WctApp extends LitElement {
                 profession: professions[Math.floor(Math.random()*groups.length)],
                 email: e.email,
                 phone: e.phone,
-                picture: e.picture
+                picture: e.picture,
+                index,
             }
         });
 
@@ -64,7 +66,7 @@ class WctApp extends LitElement {
     const e = this.users[this.selectedUser];
 
     return html`
-      <wct-list @user-clicked=${this.userClicked} .users=${this.users}></wct-list>
+      <wct-list @user-clicked=${this.userClicked} .groups=${groups} .users=${this.users}></wct-list>
       <hr />
       <wct-details
         name=${e.name}
