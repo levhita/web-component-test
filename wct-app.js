@@ -32,6 +32,7 @@ class WctApp extends LitElement {
     })
     .then((data) => {
         this.users = data.results.map( (e, index) => {
+          
             return {
                 name: `${e.name.first} ${e.name.last}`,
                 group: groups[Math.floor(Math.random()*groups.length)],
