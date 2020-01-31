@@ -18,6 +18,12 @@ class WctApp extends LitElement {
   }
   
   getUsers() {
+    const groups = ['Student','Teacher','Administrative'];
+    const professions = [
+      'Accountant','Actor','Actress','Air Traffic Controller','Architect','Artist','Attorney',
+      'Banker','Bartender','Barber','Bookkeeper','Builder','Businessman'
+    ];
+
     this.loading = true;
     fetch('https://randomuser.me/api/?seed=levhita&results=18&inc=name,phone,email,picture')
     .then((response) => {
@@ -27,9 +33,9 @@ class WctApp extends LitElement {
         this.users = data.results.map( (e) => {
             return {
                 name: `${e.name.first} ${e.name.last}`,
-                group: 'Not in API',
-                bio: 'Not in API',
-                profession: 'Not in API',
+                group: groups[Math.floor(Math.random()*groups.length)],
+                bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                profession: professions[Math.floor(Math.random()*groups.length)],
                 email: e.email,
                 phone: e.phone,
                 picture: e.picture
