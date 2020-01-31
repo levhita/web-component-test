@@ -1,4 +1,4 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html, css } from 'lit-element';
 import './wct-list.js';
 import './wct-details.js';
 
@@ -32,7 +32,7 @@ class WctApp extends LitElement {
     })
     .then((data) => {
         this.users = data.results.map( (e, index) => {
-          
+
             return {
                 name: `${e.name.first} ${e.name.last}`,
                 group: groups[Math.floor(Math.random()*groups.length)],
@@ -61,6 +61,19 @@ class WctApp extends LitElement {
     this.selectedUser = e.detail.index;
   }
 
+  static get styles() {
+    return css`
+      wct-list {
+        width: 66%;
+        float:left;
+      }
+      wct-details {
+        width: 33%;
+        float:right;
+      }
+    `;
+  }
+
   render(){
     if ( this.loading ) return html `Loading...` ;
 
@@ -68,7 +81,7 @@ class WctApp extends LitElement {
 
     return html`
       <wct-list @user-clicked=${this.userClicked} .groups=${groups} .users=${this.users}></wct-list>
-      <hr />
+
       <wct-details
         name=${e.name}
         group=${e.group}

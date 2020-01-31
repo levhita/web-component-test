@@ -1,4 +1,4 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html, css } from 'lit-element';
 
 class WctDetails extends LitElement {
   static get properties() {
@@ -24,14 +24,55 @@ class WctDetails extends LitElement {
     this.picture = {large:'',medium:''};
   }
 
+  static get styles() {
+    return css`
+      :host {
+        position:relative;
+      }
+      section {
+        box-sizing: border-box;
+        border-left: 3px solid grey;
+      }
+      div.container {
+        background-color:black;
+        overflow:none;
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        z-index: -1;
+      }
+
+      img.back {
+        width: 100%;
+        -webkit-filter: blur(5px) brightness(50%);
+        filter: blur(5px)brightness(50%);
+      }
+      div.intro {
+        text-align:center;
+        color: white;
+      }
+      img.detail {
+        margin-top:50px;
+        border: 3px solid white;
+        border-radius: 50%;
+      }
+      dl {
+        margin: 1em;
+      }
+    `;
+  }
+
   render(){
     return html`
       <section>
-        <div>
+        <div class="intro">
+          <img class="detail" src=${this.picture.large} />
+          <div class="container">
+            <img class="back" src=${this.picture.large} />
+          </div>
           <h1>${this.name}</h1>
           <p>${this.group}</p>
-          <img src=${this.picture.medium} />
-          <img src=${this.picture.large} />
         </div>
         <dl>
           <dt>Short Bio</dt>

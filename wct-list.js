@@ -1,4 +1,4 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html, css } from 'lit-element';
 import './wct-user.js';
 
 class WctList extends LitElement {
@@ -17,6 +17,23 @@ class WctList extends LitElement {
     this.selectedGroup = 'Student';
   }
 
+  static get styles() {
+    return css`
+      select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;       /* Remove default arrow */
+        background-image: url(...);   /* Add custom arrow */
+        height: 48px;
+        /*background: #EEE;*/
+        color: dimrey;
+        border:1px solid grey;
+        font-size: 18px;
+        border-radius: 4px;
+      }
+    `;
+  }
+
   handleChange(e){
     this.selectedGroup = e.target.value;
     this.requestUpdate();
@@ -26,8 +43,10 @@ class WctList extends LitElement {
     return html`
       <section>
         <h1>Users</h1>
+        
         <p>If you want to get contact information to especific user, just select group and then select
         him from the list below.</p>
+        
         <div>
           Select group of users:
           <select @change=${this.handleChange}>
