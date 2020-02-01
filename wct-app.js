@@ -64,7 +64,7 @@ class WctApp extends LitElement {
     this.users[e.detail.index].selected = true;
     // Force new reference for wtc-list to trigger render
     this.users=[...this.users];
-    
+
     this.selectedUser = e.detail.index;
   }
 
@@ -74,7 +74,7 @@ class WctApp extends LitElement {
         margin-rigth: 400px;
       }
       wct-details {
-        position: absolute;
+        position: fixed;
         right:0;
         top:0;
         width: 400px;
