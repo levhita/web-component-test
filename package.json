@@ -17,7 +17,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --env.mode development",
-    "dist": "webpack --env.mode production"
+    "dist": "webpack --env.mode production --output ./docs/main.js"
   },
   "repository": {
     "type": "git",
