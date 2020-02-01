@@ -82,7 +82,7 @@ class WctDetails extends LitElement {
         font-size: 14px;
       }
       dd {
-        margin: 10px 0 30 0;
+        margin: 10px 0 30px 0;
         color: #222;
       }
 

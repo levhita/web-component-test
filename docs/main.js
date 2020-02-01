@@ -300,7 +300,7 @@ const B=(e,t)=>`${e}--${t}`;let q=!0;void 0===window.ShadyCSS?q=!1:void 0===wind
         font-size: 14px;
       }
       dd {
-        margin: 10px 0 30 0;
+        margin: 10px 0 30px 0;
         color: #222;
       }
 
