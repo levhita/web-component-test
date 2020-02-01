@@ -28,63 +28,87 @@ class WctDetails extends LitElement {
     return css`
       :host {
         position:relative;
-      }
-      section {
         box-sizing: border-box;
-        border-left: 3px solid grey;
+        border-left: 1px solid grey;
+        overflow:hidden;
       }
-      div.container {
-        background-color:black;
-        overflow:none;
-        position:absolute;
-        top:0;
-        left:0;
-        width:100%;
-        z-index: -1;
-      }
-
-      img.back {
-        width: 100%;
-        -webkit-filter: blur(5px) brightness(50%);
-        filter: blur(5px)brightness(50%);
-      }
+      
       div.intro {
         text-align:center;
         color: white;
+        padding: 0;
+        height: 300px;
+        overflow:hidden;
       }
+      div.intro > h1 {
+        font-size: 18px;
+      }
+      div.intro > p {
+        font-size:14px;
+      }
+
+
+      div.back {
+        position:absolute;
+        height: 330px;
+        width: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        
+        filter: blur(8px) brightness(70%);
+        -webkit-filter: blur(8px) brightness(70%);
+        z-index:-1;
+      }
+
       img.detail {
-        margin-top:50px;
-        border: 3px solid white;
+        border: 4px solid white;
         border-radius: 50%;
+        margin-top: 40px;
+        margin-bottom:20px;
+      }
+
+      div.details {
+        background:white;
+        padding:5px;
       }
       dl {
+        padding:0;
+        margin:0;
         margin: 1em;
       }
+      dt {
+        color: gray;
+        font-size: 14px;
+      }
+      dd {
+        margin: 10px 0 30 0;
+        color: #222;
+      }
+
     `;
   }
 
   render(){
     return html`
-      <section>
         <div class="intro">
-          <img class="detail" src=${this.picture.large} />
-          <div class="container">
-            <img class="back" src=${this.picture.large} />
-          </div>
+          <div class="back" style="background-image: url(${this.picture.large})"></div>  
+          <img class="detail" src="${this.picture.large}"/>
           <h1>${this.name}</h1>
           <p>${this.group}</p>
         </div>
-        <dl>
-          <dt>Short Bio</dt>
-          <dd>${this.bio}</dd>
-          <dt>Profession</dt>
-          <dd>${this.profession}</dd>
-          <dt>Email</dt>
-          <dd>${this.email}</dd>
-          <dt>Phone</dt>
-          <dd>${this.phone}</dd>
-        </dl>
-      </section>
+        <div class="details">
+          <dl>
+            <dt>Short Bio</dt>
+            <dd>${this.bio}</dd>
+            <dt>Profession</dt>
+            <dd>${this.profession}</dd>
+            <dt>Email</dt>
+            <dd>${this.email}</dd>
+            <dt>Phone</dt>
+            <dd>${this.phone}</dd>
+          </dl>
+        </div>
     `;
   }
 }

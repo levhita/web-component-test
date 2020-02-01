@@ -54,7 +54,7 @@ class WctList extends LitElement {
           </select>
         </div>
         <div>
-          ${this.users.filter(e=>e.group==this.selectedGroup).map((e, i) => html`<wct-user index=${e.index} thumbnail=${e.picture.thumbnail} name=${e.name}></wct-user>`)}
+          ${this.users.filter(e=>e.group==this.selectedGroup).map((e, i) => html`<wct-user index=${e.index} .selected=${e.selected} thumbnail=${e.picture.thumbnail} name=${e.name}></wct-user>`)}
         </div>
       </section>
     `;

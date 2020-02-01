@@ -26,7 +26,7 @@ class WctApp extends LitElement {
   
   getUsers() {
     this.loading = true;
-    fetch('https://randomuser.me/api/?seed=levhita&results=50&inc=name,phone,email,picture')
+    fetch('https://randomuser.me/api/?seed=Levhita&results=50&inc=name,phone,email,picture')
     .then((response) => {
         return response.json();
     })
@@ -42,10 +42,12 @@ class WctApp extends LitElement {
                 phone: e.phone,
                 picture: e.picture,
                 index,
+                selected: false
             }
         });
 
         this.selectedUser = 0;
+        this.users[0].selected = true;
         this.loading = false;
     });
   }
@@ -58,18 +60,25 @@ class WctApp extends LitElement {
   }
   
   userClicked(e){
+    this.users[this.selectedUser].selected = false;
+    this.users[e.detail.index].selected = true;
+    // Force new reference for wtc-list to trigger render
+    this.users=[...this.users];
+    
     this.selectedUser = e.detail.index;
   }
 
   static get styles() {
     return css`
       wct-list {
-        width: 66%;
-        float:left;
+        margin-rigth: 400px;
       }
       wct-details {
-        width: 33%;
-        float:right;
+        position: absolute;
+        right:0;
+        top:0;
+        width: 400px;
+        float: right;
       }
     `;
   }
@@ -80,8 +89,6 @@ class WctApp extends LitElement {
     const e = this.users[this.selectedUser];
 
     return html`
-      <wct-list @user-clicked=${this.userClicked} .groups=${groups} .users=${this.users}></wct-list>
-
       <wct-details
         name=${e.name}
         group=${e.group}
@@ -91,6 +98,7 @@ class WctApp extends LitElement {
         phone=${e.phone}
         .picture=${e.picture}>
       </wct-details>
+      <wct-list @user-clicked=${this.userClicked} .groups=${groups} .users=${this.users}></wct-list>
     `;
   }
 }

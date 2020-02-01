@@ -6,8 +6,8 @@ class WctUser extends LitElement {
     return {
       name: { type: String },
       thumbnail: { type: String },
-      index: { type: Number }
-
+      index: { type: Number },
+      selected: { type: Boolean }
     };
   }
   
@@ -18,12 +18,12 @@ class WctUser extends LitElement {
         display: block;
         width: 40%;
         height: 48px;
-        float: left;
         margin:20px 10px;
+        float:left;
       }
       button {
         font-size:18px;
-        width: 100%;
+        width: 250px;
         height: 50px;
         border:none;
         box-sizing: border-box;
@@ -34,11 +34,18 @@ class WctUser extends LitElement {
         padding:12px 0px;
  
       }
-      button:hover{
+
+      button.selected {
         border: 1px solid grey;
-        cursor: pointer;
         background: #EEE;
       }
+
+      button:hover {
+        border: 1px solid dimgrey;
+        cursor: pointer;
+        background: #DDD;
+      }
+
       span {
         display: inline-block;
         vertical-align: middle;
@@ -56,6 +63,7 @@ class WctUser extends LitElement {
     this.name = '';
     this.thumbnail = '';
     this.index = 0;
+    this.selected = false; 
   }
 
   handleClick(){
@@ -70,9 +78,8 @@ class WctUser extends LitElement {
   }
 
   render(){
-
     return html`
-        <button @click=${this.handleClick}><img src="${this.thumbnail}" /> ${this.name}</button>
+        <button @click=${this.handleClick} class="${this.selected&&'selected'}"><img src="${this.thumbnail}" /> ${this.name}</button>
     `;
   }
 }
