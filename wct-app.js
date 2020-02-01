@@ -70,9 +70,6 @@ class WctApp extends LitElement {
 
   static get styles() {
     return css`
-      wct-list {
-        margin-rigth: 400px;
-      }
       wct-details {
         position: fixed;
         right:0;

@@ -20,6 +20,7 @@ class WctList extends LitElement {
   static get styles() {
     return css`
       select {
+        margin-left: 30px;
         -webkit-appearance: none;
         -moz-appearance: none;
         appearance: none;       /* Remove default arrow */
@@ -30,6 +31,19 @@ class WctList extends LitElement {
         border:1px solid grey;
         font-size: 18px;
         border-radius: 4px;
+      }
+      h1 {
+        color: dimgray;
+      }
+      p {
+        color: gray
+      }
+      div {
+        color: dimgray;
+        font-weight: bold;
+      }
+      section {
+        margin-right: 400px;
       }
     `;
   }

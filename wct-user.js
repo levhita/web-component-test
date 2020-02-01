@@ -13,12 +13,13 @@ class WctUser extends LitElement {
   
   static get styles() {
     return css`
-      :host {
+      div {
         box-sizing: border-box;
         display: block;
         width: 40%;
         height: 48px;
-        margin:20px 10px;
+        margin:20px 20px;
+        width: 250px;
         float:left;
       }
       button {
@@ -31,8 +32,7 @@ class WctUser extends LitElement {
         background: white;
         display: inline-block;
         text-align:left;
-        padding:12px 0px;
- 
+        padding: 12px 0px;
       }
 
       button.selected {
@@ -79,7 +79,9 @@ class WctUser extends LitElement {
 
   render(){
     return html`
-        <button @click=${this.handleClick} class="${this.selected&&'selected'}"><img src="${this.thumbnail}" /> ${this.name}</button>
+        <div>
+          <button @click=${this.handleClick} class="${this.selected&&'selected'}"><img src="${this.thumbnail}" /> ${this.name}</button>
+        </div>
     `;
   }
 }
