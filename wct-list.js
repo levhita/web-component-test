@@ -17,6 +17,9 @@ class WctList extends LitElement {
     this.selectedGroup = 'Student';
   }
 
+
+
+
   static get styles() {
     return css`
       select {
@@ -26,11 +29,30 @@ class WctList extends LitElement {
         appearance: none;       /* Remove default arrow */
         background-image: url(...);   /* Add custom arrow */
         height: 48px;
-        /*background: #EEE;*/
         color: dimrey;
         border:1px solid grey;
         font-size: 18px;
         border-radius: 4px;
+        padding-right: 60px;
+        padding-left: 15px;
+
+
+        background-image:
+        linear-gradient(45deg, transparent 50%, gray 50%),
+        linear-gradient(135deg, gray 50%, transparent 50%),
+        linear-gradient(to right, #ccc, #ccc);
+      background-position:
+        calc(100% - 20px) calc(1em + 2px),
+        calc(100% - 15px) calc(1em + 2px),
+        calc(100% - 2.5em) 0.5em;
+      background-size:
+        5px 5px,
+        5px 5px,
+        1px 1.5em;
+      background-repeat: no-repeat;
+      }
+      select::after {
+
       }
       h1 {
         color: dimgray;
@@ -44,6 +66,7 @@ class WctList extends LitElement {
       }
       section {
         margin-right: 400px;
+        padding: 30px;
       }
     `;
   }
