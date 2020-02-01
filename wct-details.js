@@ -41,10 +41,10 @@ class WctDetails extends LitElement {
         overflow:hidden;
       }
       div.intro > h1 {
-        font-size: 18px;
+        font-size: 22px;
       }
       div.intro > p {
-        font-size:14px;
+        font-size:18px;
       }
 
 
